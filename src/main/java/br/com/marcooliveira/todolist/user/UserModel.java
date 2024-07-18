@@ -1,31 +1,23 @@
 package br.com.marcooliveira.todolist.user;
 
+import java.util.UUID;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Data /*LIB DO LOMBOK PARA GERAR OS GETTERS E SETTERS IMPLICITAMENTE, SEM PRECISAR DECLARÁ-LOS NO 
+BODY DA CLASSE*/
+@Entity(name = "tb_users") //PARA ESPECIFICAR QUE ESTA CLASSE SERÁ UMA TABELA NO BD.
 public class UserModel {
+
+    @Id
+    @GeneratedValue //PARA GERAR O VALOR DO ID DE FORMA AUTOMÁTICA. 
+    private UUID id; // CHAVE PRIMÁRIA DA TABELA.
 
     private String userName;
     private String name;
     private String password;
-
-    //CRIAÇÃO DOS GETTERS E SETTERS.
-
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 
 }
